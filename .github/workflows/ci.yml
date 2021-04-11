@@ -41,5 +41,5 @@ jobs:
         with:
           email: 1245036094@qq.com
           build_dir: website/build  # optional
-          branch: dev   # optional
+          branch: gh-pages   # optional
           
