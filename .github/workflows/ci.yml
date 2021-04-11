@@ -29,6 +29,7 @@ jobs:
       - name: Build and install
         run: |
           cd website
+          npm install
           npm run js
           npm run build
 
