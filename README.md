@@ -1323,6 +1323,8 @@ console.log(gen.next().value);
 </p>
 </details>
 
+---
+
 ###### 45. 返回值是什么?
 
 ```javascript
@@ -2721,6 +2723,8 @@ function getName(name) {
 </p>
 </details>
 
+---
+
 ###### 87. 输出什么?
 
 ```javascript
@@ -3333,6 +3337,7 @@ Promise.resolve(5)
 </p>
 </details>
 
+---
 
 ###### 105. 输出什么?
 
