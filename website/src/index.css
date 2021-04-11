@@ -1,5 +1,6 @@
 body {
   min-height: 100vh;
+  overflow-y: auto;
   background-color: #fbf6f6;
 }
 
@@ -51,4 +52,25 @@ details p {
   border-radius: 0.3em;
   background-color: #fff;
   box-shadow:  0 0 2px 0 #dbbef3;
+}
+
+.actions .action {
+  position: fixed;
+  bottom: 60px;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .3);
+  color: #fff;
+  text-align: center;
+}
+
+.action.prev {
+  left: 130px;
+}
+
+.action.next {
+  right: 130px;
 }

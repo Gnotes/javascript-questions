@@ -6,6 +6,7 @@ const Question = ()=>{
   const history = useHistory();
   const ref = useRef(id);
   const [Component, setComponent] = useState(null);
+  const IS_MOBILE = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
 
   useEffect(()=>{
     if(!id) return;
@@ -44,7 +45,23 @@ const Question = ()=>{
   },[])
   
   if(!Component) return <div>没有该题目</div>;
-  return (<Component.default />);
+  return (
+    <div className="question-box">
+    <Component.default />
+    {
+      IS_MOBILE ?
+      (<div className="actions">
+        <span className="action prev" onClick={()=>{
+          keydown({keyCode: 37})
+        }}>prev</span>
+        <span className="action next" onClick={()=>{
+          keydown({keyCode: 39})
+        }}>next</span>
+      </div>)
+      :null
+    }
+    </div>
+  );
 }
 
 export default Question;
