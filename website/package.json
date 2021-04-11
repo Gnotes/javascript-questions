@@ -15,7 +15,7 @@
     "react-scripts": "4.0.3"
   },
   "scripts": {
-    "js":"node ./scripts/main.js",
+    "js": "node ./scripts/main.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
