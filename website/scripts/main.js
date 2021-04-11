@@ -20,6 +20,7 @@ const main = async ()=> {
     const htmls = await readMDToHTML();
     ensureOutputDir();
     writeHTMLToJSFiles(htmls);
+    writeEnvToFile(htmls.length)
   } catch (error) {
     console.log(error.message);
   }
@@ -54,6 +55,11 @@ const writeHTMLToJSFiles =  (htmls)=>{
     }`
      fs.writeFileSync(filePath, content);
   })
+}
+
+const writeEnvToFile = (fileSize)=>{
+  fs.writeFileSync(path.join(SRC_PATH, '../.env'), `PUBLIC_URL=/javascript-questions
+REACT_APP_Q_FILE_SIZE=${fileSize}`);
 }
 
 const getMDPath = ()=>{

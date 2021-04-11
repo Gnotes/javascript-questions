@@ -1,14 +1,15 @@
 import React,{useEffect, useState,useRef } from 'react';
 import { useParams,useHistory } from "react-router-dom";
 
+const MAX_SIZE = process.env.REACT_APP_Q_FILE_SIZE;
+
 const Question = ()=>{
   const {id} = useParams();
   const history = useHistory();
   const ref = useRef(id);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [Component, setComponent] = useState(null);
   const IS_MOBILE = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
-
   useEffect(()=>{
     if(!id) return;
     ref.current = id;
@@ -29,11 +30,12 @@ const Question = ()=>{
   }
 
   const keydown = (e)=>{
+    if(loading) return;
     if(e.keyCode === 37){
       const n = Math.max(parseInt(ref.current) - 1, 1);
       history.push(`/q/${n}`)
     }else if(e.keyCode === 39){
-      history.push(`/q/${(parseInt(ref.current) + 1 )}`)
+      history.push(`/q/${(Math.min(parseInt(ref.current) + 1, MAX_SIZE) )}`)
     }else if(e.keyCode === 13){
       toggleAnswer()
     }
