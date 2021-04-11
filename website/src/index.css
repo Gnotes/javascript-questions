@@ -1,0 +1,43 @@
+body {
+  min-height: 100vh;
+  background-color: #fbf6f6;
+}
+
+#root {
+  border-radius: 0.3em;
+  margin: 16px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+.question {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.question h6 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+pre[class^="language-"] {
+  margin: 16px 0;
+}
+
+pre[class^="language-"] + ul li {
+  line-height: 24px;
+}
+
+summary {
+  margin-top: 16px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+details, summary {
+  outline: none;
+}
+
+details p {
+  line-height: 24px;
+}
