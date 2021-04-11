@@ -23,7 +23,7 @@ function Home() {
     <div className="Home" style={{textAlign:'center'}}>
       <h2>JavaScript Questions</h2>
       <br/>
-      <Link to="/q/1">开始吧！</Link><span>左右键↔ 进行翻页</span>
+      <Link to="/q/1">开始吧！</Link><span>左右键 ← → 进行翻页，</span><span>回车键 ↩︎ 查看答案</span>
     </div>
   );
 }

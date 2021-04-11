@@ -18,12 +18,19 @@ const Question = ()=>{
     });
   },[id]);
 
+  const toggleAnswer = ()=>{
+    const el = document.querySelector('summary');
+    el && el.click()
+  }
+
   const keydown = (e)=>{
     if(e.keyCode === 37){
       const n = Math.max(parseInt(ref.current) - 1, 1);
       history.push(`/q/${n}`)
     }else if(e.keyCode === 39){
       history.push(`/q/${(parseInt(ref.current) + 1 )}`)
+    }else if(e.keyCode === 13){
+      toggleAnswer()
     }
   }
 
