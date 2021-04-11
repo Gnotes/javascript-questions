@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 
 const Question = ()=>{
   const {id} = useParams();
-
   const [loading, setLoading] = useState(false);
   const [Component, setComponent] = useState(null);
+
   useEffect(()=>{
     if(!id || loading) return;
     setLoading(true);
@@ -13,7 +13,8 @@ const Question = ()=>{
       setComponent(C);
       setLoading(false);
     });
-  },[]);
+  },[loading, id]);
+  
   if(loading) return <div>Loading...</div>
   if(!Component) return <div>没有该题目</div>;
   return (<Component.default />);
