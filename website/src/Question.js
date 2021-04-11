@@ -13,6 +13,7 @@ const Question = ()=>{
 
     import(`./q/${id}.js`).then((C)=>{
       setComponent(C);
+      window.localStorage.setItem('__JS_Q_ID__', id);
     }).catch(()=>{
       setComponent(null)
     });
