@@ -5,18 +5,21 @@ const Question = ()=>{
   const {id} = useParams();
   const history = useHistory();
   const ref = useRef(id);
+  const [loading, setLoading] = useState(true);
   const [Component, setComponent] = useState(null);
   const IS_MOBILE = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
 
   useEffect(()=>{
     if(!id) return;
     ref.current = id;
-
+    setLoading(true)
     import(`./q/${id}.js`).then((C)=>{
       setComponent(C);
       window.localStorage.setItem('__JS_Q_ID__', id);
+      setLoading(false)
     }).catch(()=>{
       setComponent(null)
+      setLoading(false)
     });
   },[id]);
 
@@ -43,7 +46,7 @@ const Question = ()=>{
       document.removeEventListener('keydown',keydown)
     }
   },[])
-  
+  if(loading) return <div>我很努力啦...</div>
   if(!Component) return <div>没有该题目</div>;
   return (
     <div className="question-box">
