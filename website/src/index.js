@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
 } from "react-router-dom";
@@ -18,11 +18,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Router >
     <Switch>
-          <Route path="/" exact>
-            <App />
-          </Route>
           <Route path="/q/:id">
             <Question />
+          </Route>
+          <Route path="/">
+            <App />
           </Route>
         </Switch>
     </Router>
