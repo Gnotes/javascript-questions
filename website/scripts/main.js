@@ -19,7 +19,6 @@ const main = async ()=> {
   try {
     const htmls = await readMDToHTML();
     ensureOutputDir();
-    console.log("htmls",htmls)
     writeHTMLToJSFiles(htmls);
   } catch (error) {
     console.log(error.message);
@@ -34,7 +33,6 @@ const readMDToHTML = async ()=>{
   const mdString = fs.readFileSync(MD_PATH, {encoding:'utf-8'});
 
   const htmlString =  md.render(mdString); // micromark(mdString,{allowDangerousHtml:true});
-console.log(htmlString)
   return htmlString.split('<hr>').slice(1);
 }
 
@@ -54,7 +52,6 @@ const writeHTMLToJSFiles =  (htmls)=>{
         <div className="question" data-index="${questionIndex}" dangerouslySetInnerHTML = {{ __html: \`${_html}\` }}></div>
       );
     }`
-    console.log('filePath',filePath)
      fs.writeFileSync(filePath, content);
   })
 }
