@@ -74,3 +74,24 @@ details p {
 .action.next {
   right: 115px;
 }
+
+.message {
+  position: absolute;
+  top: -50px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, .6);
+  color: #FFF;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 1px 0 #000;
+  border-radius: 0.3em;
+  opacity: 0.8;
+  transition: all 1s;
+  font-size: 12px;
+}
+
+.message.finish {
+  top: 16px;
+  opacity: 1;
+}

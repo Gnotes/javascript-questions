@@ -9,6 +9,7 @@ const Question = ()=>{
   const ref = useRef(id);
   const [loading, setLoading] = useState(false);
   const [Component, setComponent] = useState(null);
+  const [finish, setFinish] = useState(false);
   const IS_MOBILE = /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
   useEffect(()=>{
     if(!id) return;
@@ -35,7 +36,15 @@ const Question = ()=>{
       const n = Math.max(parseInt(ref.current) - 1, 1);
       history.push(`/q/${n}`)
     }else if(e.keyCode === 39){
-      history.push(`/q/${(Math.min(parseInt(ref.current) + 1, MAX_SIZE) )}`)
+      const n = Math.min(parseInt(ref.current) + 1, MAX_SIZE) 
+      const _finish = n == MAX_SIZE;
+      if(_finish) {
+        setFinish(true)
+        setTimeout(() => {
+          setFinish(false)
+        }, 2000);
+      }
+      history.push(`/q/${n}`)
     }else if(e.keyCode === 13){
       toggleAnswer()
     }
@@ -53,6 +62,7 @@ const Question = ()=>{
   return (
     <div className="question-box">
     <Component.default />
+    <span className={finish ? "message finish": "message"}>没有啦，下次再来咯~</span>
     {
       IS_MOBILE ?
       (<div className="actions">
