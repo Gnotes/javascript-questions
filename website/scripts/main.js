@@ -59,6 +59,7 @@ const writeHTMLToJSFiles =  (htmls)=>{
 
 const writeEnvToFile = (fileSize)=>{
   fs.writeFileSync(path.join(SRC_PATH, '../.env'), `PUBLIC_URL=/javascript-questions
+GENERATE_SOURCEMAP=false
 REACT_APP_Q_FILE_SIZE=${fileSize}`);
 }
 
