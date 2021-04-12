@@ -36,14 +36,17 @@ const Question = ()=>{
       const n = Math.max(parseInt(ref.current) - 1, 1);
       history.push(`/q/${n}`)
     }else if(e.keyCode === 39){
-      const n = Math.min(parseInt(ref.current) + 1, MAX_SIZE) 
-      const _finish = n == MAX_SIZE;
+      const i = parseInt(ref.current);
+      const n = Math.min(i + 1, MAX_SIZE) 
+      const _finish = i + 1 > MAX_SIZE;
       if(_finish) {
         setFinish(true)
         setTimeout(() => {
           setFinish(false)
         }, 2000);
+        return;
       }
+      
       history.push(`/q/${n}`)
     }else if(e.keyCode === 13){
       toggleAnswer()
